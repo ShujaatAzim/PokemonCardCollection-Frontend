@@ -14,7 +14,7 @@ const Card = props => {
   }
 
   return (
-    <div>
+    <div style={{ display: "inline-block" }}>
       {cardImg !== "" ? <img onClick={() => handleOpacity()} style={{ opacity: opacity }} alt="Pokemon Card" src={`${cardImg}`} /> : null }
     </div>
   )
