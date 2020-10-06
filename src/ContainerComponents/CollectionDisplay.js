@@ -3,17 +3,17 @@ import Card  from '../Components/Card'
 
 const CollectionDisplay = () => {
   
-  const [card, setCard] = useState("")
+  const [cards, setCards] = useState(null)
 
   useEffect(() => {
-    fetch('https://api.pokemontcg.io/v1/cards/base1-2')
+    fetch('https://api.pokemontcg.io/v1/cards?setCode=base1;rarity=rare;supertype=pokemon')
     .then(resp => resp.json())
-    .then(card => setCard(card))
+    .then(allCards => setCards(allCards))
   }, [])
 
   return (
     <div>
-      <Card card={card} />
+      { cards !== null ? cards.filter(card => card.number > "0" && card.number < "17").map(card => <Card cardImg={card.imageUrl} />) : null }
     </div>
   )
 }
