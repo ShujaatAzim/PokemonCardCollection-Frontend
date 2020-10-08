@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const Card = props => {
 
-  let { cardImg } = props
+  let { card } = props
 
   const [opacity, setOpacity] = useState("50%")
 
@@ -14,8 +14,8 @@ const Card = props => {
   }
 
   return (
-    <div style={{ display: "inline-block" }}>
-      {cardImg !== "" ? <img onClick={() => handleOpacity()} style={{ opacity: opacity }} alt="Pokemon Card" src={`${cardImg}`} /> : null }
+    <div style={{ display: "inline-block", margin: "0.5rem" }}>
+      <img onClick={() => handleOpacity()} style={{ opacity: opacity }} alt={card.name} src={`${card.image_url}`} />
     </div>
   )
 }
