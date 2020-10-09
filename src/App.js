@@ -1,11 +1,12 @@
 import React from 'react';
-import CollectionDisplay from './ContainerComponents/CollectionDisplay';
+import Home from './PageComponents/Home'
 
-function App() {
+
+const App = () => {
 
   return (
     <div>
-      <CollectionDisplay />
+      <Home />
     </div>
   );
 }

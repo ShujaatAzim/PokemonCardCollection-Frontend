@@ -1,19 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Card  from '../Components/Card'
 
-const CollectionDisplay = () => {
+const CollectionDisplay = props => {
   
-  const [allCards, setAllCards] = useState([])
+  const { user } = props
 
-  useEffect(() => {
-    fetch('http://localhost:3000/cards')
-    .then(resp => resp.json())
-    .then(data => setAllCards(data))
-  }, [])
-  
   return (
     <div>
-      { allCards ? allCards.map(card => <Card key={card.code} card={card} />) : null }
+      { user ? user.collection.cards.map(card => <Card key={card.code} card={card} />) : null }
     </div>
   )
 }

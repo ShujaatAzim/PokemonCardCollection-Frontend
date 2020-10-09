@@ -4,13 +4,13 @@ const Card = props => {
 
   let { card } = props
 
-  const [opacity, setOpacity] = useState("50%")
+  const [opacity, setOpacity] = useState("100%")
 
   const handleOpacity = () => {
-    if (opacity === "50%") {
-      return setOpacity("100%")
+    if (opacity === "100%") {
+      return setOpacity("50%")
     } 
-    return setOpacity("50%")
+    return setOpacity("100%")
   }
 
   return (
