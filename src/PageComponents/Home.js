@@ -1,5 +1,6 @@
 import React, { useState, useEffect} from 'react'
 import CollectionDisplay from '../ContainerComponents/CollectionDisplay'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
 
@@ -9,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     fetch('http://localhost:3000/users')
     .then(resp => resp.json())
-    .then(data => setAllUsers(data))
+    .then(users => setAllUsers(users))
   }, [])
 
   const handleUser = name => {
@@ -24,6 +25,8 @@ const Home = () => {
         <option value="">Please select a user!</option>
         { allUsers ? allUsers.map(user => <option key={user.name}>{user.name}</option>) : null }
       </select>
+      <h3>Or select a page!</h3>
+      <Link to="/cardset">Card Set</Link>
       { currentUser ? <CollectionDisplay user={currentUser} /> : null }
     </div>
   );

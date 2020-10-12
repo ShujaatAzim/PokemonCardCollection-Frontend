@@ -1,12 +1,16 @@
-import React from 'react';
+import React from 'react'
 import Home from './PageComponents/Home'
-
+import CardSet from './PageComponents/CardSet'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 const App = () => {
 
   return (
     <div>
-      <Home />
+      <BrowserRouter>
+        <Route exact path="/" component={Home} />
+        <Route path="/cardset" component={CardSet} />
+      </BrowserRouter>
     </div>
   );
 }
